@@ -35,10 +35,16 @@ class ChartCubit extends Cubit<ChartState> {
       SelectedCoin.solana,
       SelectedCoin.cardano,
     ]);
+
+    /* INFO: repo with internet connection check and response check  
+    could be added here but omitted for simplicity */
     final chartRaw = await _coinGeckoClient.getChart(
       ids: coinIds,
+      fiatCurrency: SelectedFiat.usd.name,
     );
     final chart = chartRaw.convertToListOfChartEntities();
+    /* INFO: error handling, logging and displaying  
+    could be added here but omitted for simplicity */
     emit(ChartState.loaded(chart));
   }
 }

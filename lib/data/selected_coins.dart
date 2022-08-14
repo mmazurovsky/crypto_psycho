@@ -6,6 +6,8 @@ enum SelectedCoin {
   cardano,
 }
 
+enum SelectedFiat { usd }
+
 extension SelectedCoinsExtension on SelectedCoin {
   String get id {
     if (this == SelectedCoin.bitcoin ||
@@ -32,6 +34,16 @@ extension SelectedCoinsExtension on SelectedCoin {
       return 'Cardano';
     } else {
       throw Exception('Unknown coin');
+    }
+  }
+}
+
+extension SelectedFiatExtension on SelectedFiat {
+  String get name {
+    if (this == SelectedFiat.usd) {
+      return 'usd';
+    } else {
+      throw Exception('Unknown fiat');
     }
   }
 }

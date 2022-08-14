@@ -19,6 +19,6 @@ abstract class CoinGeckoClient {
   @Headers(ClientConstants.jsonHeaders)
   Future<ChartModel> getChart({
     @Query('ids') required String ids,
-    @Query('vs_currencies') String fiatCurrency = 'usd',
+    @Query('vs_currencies') required String fiatCurrency,
   });
 }
